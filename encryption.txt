@@ -1,0 +1,13 @@
+from cryptography.fernet import Fernet
+
+#key generate 
+key = Fernet.generate_key()
+print(key)
+f = Fernet(key)
+
+#encrypt
+token = f.encrypt(b"secret_sauce")
+print(token)  
+#decrypt
+d = f.decrypt(token).decode()  
+print(d)
